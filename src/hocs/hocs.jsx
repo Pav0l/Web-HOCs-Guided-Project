@@ -29,11 +29,11 @@ export function withAuthCheck(Component) {
       isAuthed: false,
     }
 
-    componentDidUpdate() {
+    componentDidMount() {
       this.checkLogin();
     }
 
-    componentDidMount() {
+    componentDidUpdate() {
       this.checkLogin();
     }
 
