@@ -41,9 +41,18 @@ export function withAuthCheck(Component) {
       this.setState({ isAuthed });
     }
 
+    logIn = () => localStorage.setItem('isAuthed', true)
+
+    logOut = () => localStorage.clear()
+
     render() {
       return (
-        <Component {...this.props} isAuthed={this.state.isAuthed} />
+        <Component
+          {...this.props}
+          isAuthed={this.state.isAuthed}
+          logIn={this.logIn}
+          logOut={this.logOut}
+        />
       );
     }
   };
