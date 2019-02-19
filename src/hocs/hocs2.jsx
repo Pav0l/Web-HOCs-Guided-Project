@@ -33,9 +33,9 @@ export function withRandomNumberGenerator(Component) {
 
 // 1- build a HOC called `withCounter`
 // that provides the wrapped Component with the following props:
-//   * a `count` that is a number starting at 0
-//   * an `incremement` which is a function that increments the counter by 1.
-//   * a `decrement` which is a function that decrements the counter by 1.
+//   - a `count` which is a number starting at 0
+//   - an `incremement` which is a function that increments the counter by 1.
+//   - a `decrement` which is a function that decrements the counter by 1.
 
 // 2- edit Container.jsx so it can take advantage of this prop.
 
