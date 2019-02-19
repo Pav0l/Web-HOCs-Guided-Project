@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Container from './components/Container';
-import { withMagicProp, withAuthCheck } from './hocs/hocs';
+import * as gabeHocs from './hocs/hocs';
+import * as studentHocs from './hocs/hocs2';
 
-const WrappedContainer = withMagicProp(withAuthCheck(Container));
+
+const WrappedContainer = Container;
 
 ReactDOM.render(
-  <WrappedContainer magicProp='magic' />, document.querySelector('#target1'),
+  <WrappedContainer />, document.querySelector('#target1'),
 );
