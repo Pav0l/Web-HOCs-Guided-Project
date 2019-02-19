@@ -4,5 +4,5 @@ import Container from './components/Container';
 
 
 ReactDOM.render(
-  <Container />, document.querySelector('#target'),
+  <Container />, document.querySelector('#target1'),
 );
