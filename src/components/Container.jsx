@@ -1,7 +1,7 @@
 import React from 'react';
 import './Container.less';
 
-export default function Container({ magicProp, isAuthed }) {
+export default function Container({ magicProp, isAuthed, logOut }) {
   return (
     <div className='container-hello-world'>
       <div>
@@ -12,7 +12,7 @@ export default function Container({ magicProp, isAuthed }) {
         BTW, I am {isAuthed ? '' : 'NOT'} authed.
       </div>
 
-      <button onClick={() => localStorage.clear()}>LOG OUT</button>
+      <button onClick={logOut}>LOG OUT</button>
     </div>
   );
 }

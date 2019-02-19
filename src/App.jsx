@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import Container from './components/Container';
 import { withMagicProp, withAuthCheck } from './hocs/hocs';
 
-const WrappedContainer = withMagicProp(withAuthCheck(Container));
+const WrappedContainer = withAuthCheck(Container);
 
 ReactDOM.render(
-  <WrappedContainer />, document.querySelector('#target1'),
+  <WrappedContainer magicProp='magic' />, document.querySelector('#target1'),
 );

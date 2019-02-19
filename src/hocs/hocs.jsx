@@ -30,22 +30,34 @@ export function withAuthCheck(Component) {
     }
 
     componentDidUpdate() {
+      this.checkLogin();
+    }
+
+    componentDidMount() {
+      this.checkLogin();
+    }
+
+    logIn = () => {
+      localStorage.setItem('isAuthed', true);
+      this.checkLogin();
+    }
+
+    logOut = () => {
+      localStorage.clear();
+      this.checkLogin();
+    }
+
+    checkLogin = () => {
       const isAuthed = localStorage.getItem('isAuthed');
       if (isAuthed !== this.state.isAuthed) {
         this.setState({ isAuthed });
       }
     }
 
-    componentDidMount() {
-      const isAuthed = localStorage.getItem('isAuthed');
-      this.setState({ isAuthed });
-    }
-
-    logIn = () => localStorage.setItem('isAuthed', true)
-
-    logOut = () => localStorage.clear()
-
     render() {
+      if (!this.state.isAuthed) {
+        return <button onClick={this.logIn}>Please, log in</button>;
+      }
       return (
         <Component
           {...this.props}
