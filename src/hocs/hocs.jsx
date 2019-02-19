@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-export default function withMagicProp(Component) {
+export function withMagicProp(Component) {
   return class WithMagicProp extends React.Component {
     state = { count: 0 }
 
