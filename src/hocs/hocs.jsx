@@ -62,7 +62,6 @@ export function withAuthCheck(Component) {
         <Component
           {...this.props}
           isAuthed={this.state.isAuthed}
-          logIn={this.logIn}
           logOut={this.logOut}
         />
       );
