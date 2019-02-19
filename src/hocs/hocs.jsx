@@ -22,3 +22,29 @@ export function withMagicProp(Component) {
     }
   };
 }
+
+export function withAuthCheck(Component) {
+  return class WithAuthCheck extends React.Component {
+    state = {
+      isAuthed: false,
+    }
+
+    componentDidUpdate() {
+      const isAuthed = localStorage.getItem('isAuthed');
+      if (isAuthed !== this.state.isAuthed) {
+        this.setState({ isAuthed });
+      }
+    }
+
+    componentDidMount() {
+      const isAuthed = localStorage.getItem('isAuthed');
+      this.setState({ isAuthed });
+    }
+
+    render() {
+      return (
+        <Component {...this.props} isAuthed={this.state.isAuthed} />
+      );
+    }
+  };
+}

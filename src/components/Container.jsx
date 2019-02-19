@@ -1,8 +1,16 @@
 import React from 'react';
 import './Container.less';
 
-export default function Container({ magicProp }) {
+export default function Container({ magicProp, isAuthed }) {
   return (
-    <div className='container-hello-world'>Hello World: {magicProp}</div>
+    <div className='container-hello-world'>
+      <div>
+        Hello World: {magicProp}
+      </div>
+
+      <div>
+        BTW, I am {isAuthed ? '' : 'NOT'} authed.
+      </div>
+    </div>
   );
 }
