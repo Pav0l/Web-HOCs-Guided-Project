@@ -11,6 +11,14 @@ import React from 'react';
 
 export function withTimestamp(Component) {
   // implement
+  return class ComponentWithTimestamp extends React.Component {
+    render() {
+      return (
+        // {...this.props} makes sure you do not lose any of the original props from the Component
+        <Component {...this.props} timestamp="timestamp" />
+      );
+    }
+  };
 }
 
 
@@ -43,4 +51,32 @@ export function withRandomNumberGenerator(Component) {
 
 export function withCounter(Component) {
   // implement
+  return class ComponentWithCounter extends React.Component {
+    state = {
+      count: 0,
+    }
+
+    increment = () => {
+      this.setState(prevState => ({
+        count: prevState.count + 1,
+      }));
+    }
+
+    decrement = () => {
+      this.setState(prevState => ({
+        count: prevState.count - 1,
+      }));
+    }
+
+    render() {
+      return (
+        <Component
+          {...this.props}
+          count={this.state.count}
+          increment={this.increment}
+          decrement={this.decrement}
+        />
+      );
+    }
+  };
 }
